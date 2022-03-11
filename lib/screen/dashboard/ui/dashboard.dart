@@ -136,37 +136,60 @@ class DashboardPageState extends State<DashboardPage> {
       //   },
       // ),
       floatingActionButton: FloatingActionButton(
-          child: Text('Hellos'),
+        backgroundColor: HexColor(CommonColor.appColor),
+          child: const Icon(Icons.add),
           onPressed: () {
-            showGeneralDialog(
-              context: context,
-              barrierColor: Colors.black38,
-              barrierLabel: 'Label',
-              barrierDismissible: true,
-              pageBuilder: (_, __, ___) => Center(
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 20.0),
-                  alignment: Alignment.bottomCenter,
-                  color: Colors.transparent,
-                  child: Material(
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        CommonWidget().floatingActionMenu(
-                            imagePath: CommonImage.createInspections,
-                            onTaps: () {},
-                            menuLabel: Texts.inspections),
-                        CommonWidget().floatingActionMenu(
-                            imagePath: CommonImage.createNewCases,
-                            onTaps: () {},
-                            menuLabel: Texts.createNewCases),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            );
+            showDialog(
+                context: context,
+                builder: (_) => Dialog(
+                      backgroundColor: Colors.transparent,
+                      child: InkWell(
+                        onTap: ()=> Navigator.pop(context),
+                        child: Container(
+                            alignment: FractionalOffset.center,
+                            padding: const EdgeInsets.all(0.0),
+                            child: Column(
+                              children: <Widget>[
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.addAssets,
+                                    onTaps: () {},
+                                    menuLabel: Texts.addAssets),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.keySignIn,
+                                    onTaps: () {},
+                                    menuLabel: Texts.keySignIn),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.sendBroadcast,
+                                    onTaps: () {},
+                                    menuLabel: Texts.sendBroadcast),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.viewCalender,
+                                    onTaps: () {},
+                                    menuLabel: Texts.viewCalendar),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.contactToContact,
+                                    onTaps: () {},
+                                    menuLabel: Texts.contactViewContractor),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.contactToResident,
+                                    onTaps: () {},
+                                    menuLabel: Texts.contactViewResident),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.sendMessages,
+                                    onTaps: () {},
+                                    menuLabel: Texts.sendMessage),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.createInspections,
+                                    onTaps: () {},
+                                    menuLabel: Texts.inspections),
+                                CommonWidget().floatingActionMenu(
+                                    imagePath: CommonImage.createNewCases,
+                                    onTaps: () {},
+                                    menuLabel: Texts.createNewCases),
+                              ],
+                            )),
+                      ),
+                    ));
           }),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

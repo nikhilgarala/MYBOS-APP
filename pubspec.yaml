@@ -38,7 +38,6 @@ dependencies:
   hexcolor: ^2.0.6
   flutter_speed_dial: ^5.0.0+1
   dots_indicator: ^2.1.0
-  flutter_boom_menu: ^1.0.2
 
 dev_dependencies:
   flutter_test:

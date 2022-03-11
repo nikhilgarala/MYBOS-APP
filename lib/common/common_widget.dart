@@ -29,12 +29,13 @@ class CommonWidget {
         ),
       );
 
-  floatingActionMenu({required String menuLabel,
-    required String imagePath,
-    required void Function()? onTaps}) =>
-      SpeedDialChild(
-        backgroundColor: Colors.grey,
-        labelWidget: Container(
+  floatingActionMenu(
+          {required String menuLabel,
+          required String imagePath,
+          required void Function()? onTaps}) =>
+      InkWell(
+        child: Container(
+          margin: const EdgeInsets.only(top: 10.0,bottom: 10.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             color: Colors.white,
@@ -42,37 +43,82 @@ class CommonWidget {
           alignment: Alignment.center,
           padding: const EdgeInsets.only(left: 16.0, right: 16.0),
           height: 46,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 16.0,
-                width: 16.0,
-                child: Image.asset(
-                  imagePath.toString(),
+          child: Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
                   height: 16.0,
                   width: 16.0,
-                  fit: BoxFit.fill,
+                  child: Image.asset(
+                    imagePath.toString(),
+                    height: 16.0,
+                    width: 16.0,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                width: 16.0,
-              ),
-              Text(
-                menuLabel.toString(),
-                style: CommonStyle().floatingActionButtonStyles(),
-              ),
-            ],
+                const SizedBox(
+                  width: 16.0,
+                ),
+                Text(
+                  menuLabel.toString(),
+                  overflow: TextOverflow.clip,
+                  maxLines: 3,
+                  style: CommonStyle().floatingActionButtonStyles(),
+                ),
+              ],
+            ),
           ),
         ),
         onTap: onTaps,
       );
 
+  // floatingActionMenu({required String menuLabel,
+  //   required String imagePath,
+  //   required void Function()? onTaps}) =>
+  //     SpeedDialChild(
+  //       backgroundColor: Colors.grey,
+  //       labelWidget: Container(
+  //         decoration: BoxDecoration(
+  //           borderRadius: BorderRadius.circular(8.0),
+  //           color: Colors.white,
+  //         ),
+  //         alignment: Alignment.center,
+  //         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+  //         height: 46,
+  //         child: Row(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           crossAxisAlignment: CrossAxisAlignment.center,
+  //           children: [
+  //             SizedBox(
+  //               height: 16.0,
+  //               width: 16.0,
+  //               child: Image.asset(
+  //                 imagePath.toString(),
+  //                 height: 16.0,
+  //                 width: 16.0,
+  //                 fit: BoxFit.fill,
+  //               ),
+  //             ),
+  //             const SizedBox(
+  //               width: 16.0,
+  //             ),
+  //             Text(
+  //               menuLabel.toString(),
+  //               style: CommonStyle().floatingActionButtonStyles(),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //       onTap: onTaps,
+  //     );
+
   // Drawer Menu Item
-  drawerMenu({required void Function()? onTaps,
-    required String menuLabel,
-    required String menuIcon}) =>
+  drawerMenu(
+          {required void Function()? onTaps,
+          required String menuLabel,
+          required String menuIcon}) =>
       InkWell(
         onTap: onTaps,
         child: ListTile(
@@ -101,9 +147,10 @@ class CommonWidget {
       );
 
   // Drawer Logout Icons
-  drawerLogoutMenu({required void Function()? onTaps,
-    required String menuLabel,
-    required String menuIcon}) =>
+  drawerLogoutMenu(
+          {required void Function()? onTaps,
+          required String menuLabel,
+          required String menuIcon}) =>
       InkWell(
         onTap: onTaps,
         child: ListTile(
@@ -132,7 +179,7 @@ class CommonWidget {
       );
 
   appBackButton(
-      {required void Function()? onTaps, required String buttonIcon}) =>
+          {required void Function()? onTaps, required String buttonIcon}) =>
       InkWell(
         onTap: onTaps,
         child: Image.asset(

@@ -43,6 +43,7 @@ class CommonStyle {
 
   floatingActionButtonStyles() => const TextStyle(
         fontFamily: AppDetails.rubik_bold,
+        overflow: TextOverflow.clip,
         fontSize: 14.0,
         color: Colors.black,
       );

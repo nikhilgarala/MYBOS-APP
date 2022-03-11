@@ -87,7 +87,6 @@ class _HomePageState extends State<HomePage> {
   late double screenHeight, screenWidth;
   double currentPageIndex = 0.0;
 
-
   @override
   Widget build(BuildContext context) {
     final decorator = DotsDecorator(
@@ -148,16 +147,12 @@ class _HomePageState extends State<HomePage> {
                   Positioned(
                     right: 0.0,
                     left: 0.0,
-                    bottom : (Platform.isIOS) ?  30 : 80,
+                    bottom: (Platform.isIOS) ? 30 : 50,
                     child: menuItemDotIndicator(decorator),
                   )
                 ],
               ),
             ),
-            // Display the grid of Menu items
-            // menuItems(),
-          
-            // menuItemDotIndicator(decorator),
           ],
         ),
       ),
